@@ -23,7 +23,11 @@ These URLs are citations. They do not license their text into this repository.
 | Wikipedia, *-wich town* | Lore source | Citation only | No |
 | Wiktionary, Old English *wīc* | Lore source | Citation only | No |
 | Coinbase Developer Docs, How x402 Works | Lore source for the stile idea | Citation only | No |
-| RHS Growing Guides | Named in complete-crop `source` fields | Citation only | No body text copied |
+| RHS Growing Guides | Named in complete-crop `source` fields | Citation only | No |
+| RHS, Peat-free compost choices | Cited on Coco Soil | Citation only | No |
+| Xiong et al. 2017, *Frontiers in Plant Science* | Cited on Coco Soil as one tomato paper | Citation only | No |
+| CAMEO, Glassine | Cited on Seed Pack / glassine | Citation only | No |
+| Gardening Naturally, glassine envelopes | Cited on Seed Pack as a trade note | Citation only | No |
 
 ## Images
 

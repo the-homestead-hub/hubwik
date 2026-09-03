@@ -107,9 +107,9 @@ The Three by Four is a four-tier stack of trio planters: twelve growing position
 
 <p>Each growing position is five litres. You do not drop a nursery pot into a decorative shell. One saucer sits under the whole stack, not under each pot. Soil and open seeds — no locked hydroponic pods. That is the system, and it is why Coco Soil is sized as one bag, one tier.</p>
 
-## A start of food re-sovereignty
+## What twelve positions do
 
-<p>Twelve positions will not feed a household. They will grow the herbs and leaves you otherwise buy every week, in the space of a stack, from seed you can buy again. That is the start of food re-sovereignty this shop will own: not a manifesto on the hall, a kit that actually plants. The Four by Four is the larger start. This is the first one.</p>
+<p>Twelve positions will not feed a household. They will grow the herbs and leaves you otherwise buy every week, in the space of a stack, from seed you can buy again. The Four by Four is the larger kit. This is the first one.</p>
 
 ## In the box
 

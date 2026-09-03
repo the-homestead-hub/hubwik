@@ -30,6 +30,7 @@ path = [
     "TRADEMARKS.md",
     "NOTICE",
     "LICENSE",
+    "content/charter.md",
 ]
 SPDX-FileCopyrightText = "2026 The Homestead Hub"
 SPDX-License-Identifier = "CC-BY-4.0"
