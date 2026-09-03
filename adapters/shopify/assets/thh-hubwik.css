@@ -466,12 +466,17 @@
 .thh-hw-box figure {
   margin: 0;
   background: #E7DBC0;
+  aspect-ratio: 1 / 1;
+  overflow: hidden;
 }
 .thh-hw-box img {
   width: 100%;
+  height: auto;
+  max-height: none;
   display: block;
-  aspect-ratio: 1;
+  aspect-ratio: 1 / 1;
   object-fit: cover;
+  object-position: center;
 }
 .thh-hw-box table {
   width: 100%;
@@ -561,7 +566,12 @@
     grid-template-areas: "head" "box" "prose";
     gap: 1.4em;
   }
-  .thh-hw-box { position: static; max-width: none; }
+  .thh-hw-box {
+    position: static;
+    max-width: 22rem;
+    width: 100%;
+    justify-self: center;
+  }
   .thh-hw-room { padding-top: 1.2em; }
   .thh-hw-room__head h1 { font-size: clamp(34px, 11vw, 48px); }
   .thh-hw-room__lede { font-size: 17px; }

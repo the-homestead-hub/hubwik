@@ -106,10 +106,11 @@
       {%- if box_img -%}
         <figure>
           <img
-            src="{{ box_img | image_url: width: 640 }}"
+            src="{{ box_img | image_url: width: 720 }}"
             alt="{{ box_alt | escape }}"
-            width="640"
-            height="640"
+            width="720"
+            height="720"
+            loading="eager"
             fetchpriority="high"
           >
         </figure>
