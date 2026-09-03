@@ -1,0 +1,44 @@
+name: Evidence
+description: A source, paper, or observation that should stand behind a number.
+title: "[evidence] "
+labels: ["evidence"]
+body:
+  - type: input
+    id: crop
+    attributes:
+      label: Crop or treatise
+      placeholder: basil, coco-soil, …
+    validations:
+      required: true
+  - type: textarea
+    id: claim
+    attributes:
+      label: Claim this evidence supports
+    validations:
+      required: true
+  - type: textarea
+    id: source
+    attributes:
+      label: Source
+      description: Author, title, date, URL, and licence if you want text imported. Observation rows need sow date, medium, lamp, and as-of date.
+    validations:
+      required: true
+  - type: dropdown
+    id: provenance
+    attributes:
+      label: Provenance kind
+      options:
+        - thh_observation
+        - thh_trial
+        - kit_buyer
+        - partner_observation
+        - supplier_spec
+        - horticultural_consensus
+        - external_study
+        - working_recommendation
+        - live_treatise
+    validations:
+      required: true
+  - type: markdown
+    attributes:
+      value: Do not name a partner firm or a grower. Show conditions, not people.

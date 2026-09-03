@@ -1,0 +1,194 @@
+{{ 'thh-hubwik.css' | asset_url | stylesheet_tag }}
+
+{%- include 'thh-hubwik-index' -%}
+{%- liquid
+  assign lore = hw_lore
+  assign growing = hw_growing
+  assign shop = hw_shop
+  assign titled = hw_titled
+  assign sow_now = hw_sow_now
+  assign shop_root = shop.url
+  assign total = hw_total
+-%}
+
+<article class="thh-hw thh-hw--contents" data-thh-hw>
+  <header class="thh-hw__mast">
+    <p class="thh-hw__kicker">The Homestead Hub · a wick of standing knowledge</p>
+    <h1 aria-label="Hub Wick">{% render 'thh-hubwik-mark' %}</h1>
+    <p class="thh-hw__deck">{{ hw_ontology | escape }}</p>
+  </header>
+
+  <div class="thh-hw__wrap">
+    <nav class="thh-hw__folio" aria-label="Contents">
+      <ul class="thh-hw__jump">
+        <li><a href="#thh-hw-lore">I Lore</a></li>
+        <li><a href="#thh-hw-growing">II Growing</a></li>
+        <li><a href="#thh-hw-shop">III The shop, explained</a></li>
+        <li><a href="#thh-hw-titled">IV Titled</a></li>
+        <li><a href="#thh-hw-sow">Sow now</a></li>
+      </ul>
+      <p class="thh-hw__count">{{ hw_count_label | default: 'rooms' }}</p>
+    </nav>
+
+    <section class="thh-hw__sow" aria-labelledby="thh-hw-sow">
+      <h2 id="thh-hw-sow">Sow now · early autumn</h2>
+      <ol class="thh-hw__sow-list">
+        {%- for key in sow_now -%}
+          {%- assign handle = key -%}
+          {%- include 'thh-hubwik-lookup' -%}
+          {%- if hw_found -%}
+            <li>
+              <a href="{{ hw_url }}">
+                <span class="thh-hw__n">{{ forloop.index }}</span>
+                <span class="thh-hw__sow-body">
+                  <strong>{{ hw_title | escape }}</strong>
+                  {{ hw_claim | escape }}
+                </span>
+              </a>
+            </li>
+          {%- endif -%}
+        {%- endfor -%}
+      </ol>
+    </section>
+
+    <section class="thh-hw__part thh-hw__part--short" aria-labelledby="thh-hw-lore">
+      <h2 id="thh-hw-lore"><span class="thh-hw__part-n">I</span> Lore</h2>
+      <p class="thh-hw__part-note">Origin of the wick, and of homesteading before the American Act. Deep pages, same URLs.</p>
+      <ol class="thh-hw__book">
+        {%- for key in lore -%}
+          {%- assign handle = key -%}
+          {%- include 'thh-hubwik-lookup' -%}
+          {%- if hw_found -%}
+            <li class="thh-hw__line">
+              <a href="{{ hw_url }}">
+                <span class="thh-hw__line-name">
+                  {{ hw_title | escape }}
+                  {%- if hw_latin != blank -%}<em>{{ hw_latin | escape }}</em>{%- endif -%}
+                </span>
+                <span class="thh-hw__line-claim">{{ hw_claim | escape }}</span>
+              </a>
+            </li>
+          {%- endif -%}
+        {%- endfor -%}
+      </ol>
+    </section>
+
+    <section class="thh-hw__part" aria-labelledby="thh-hw-growing">
+      <h2 id="thh-hw-growing"><span class="thh-hw__part-n">II</span> Growing</h2>
+      <p class="thh-hw__part-note">Catalogue varieties. Alphabetical. Each satellite opens the Seed Pack on that variety.</p>
+      <ol class="thh-hw__book">
+        {%- for key in growing -%}
+          {%- assign handle = key -%}
+          {%- include 'thh-hubwik-lookup' -%}
+          {%- if hw_found -%}
+            <li class="thh-hw__line">
+              <a href="{{ hw_url }}">
+                <span class="thh-hw__line-name">
+                  {{ hw_title | escape }}
+                  <em>{{ hw_latin | escape }}</em>
+                </span>
+                <span class="thh-hw__line-claim">{{ hw_claim | escape }}</span>
+              </a>
+            </li>
+          {%- endif -%}
+        {%- endfor -%}
+      </ol>
+    </section>
+
+    <section class="thh-hw__part" aria-labelledby="thh-hw-shop">
+      <h2 id="thh-hw-shop"><span class="thh-hw__part-n">III</span> The shop, explained</h2>
+      <p class="thh-hw__part-note">Live range as treatises: medium, lamp, glassine pack, the two stacks. Till stays on the product.</p>
+      <ol class="thh-hw__book">
+        {%- for key in shop -%}
+          {%- assign handle = key -%}
+          {%- include 'thh-hubwik-lookup' -%}
+          {%- if hw_found -%}
+            <li class="thh-hw__line">
+              <a href="{{ hw_url }}">
+                <span class="thh-hw__line-name">
+                  {{ hw_title | escape }}
+                  {%- if hw_latin != blank -%}<em>{{ hw_latin | escape }}</em>{%- endif -%}
+                </span>
+                <span class="thh-hw__line-claim">{{ hw_claim | escape }}</span>
+              </a>
+            </li>
+          {%- endif -%}
+        {%- endfor -%}
+      </ol>
+    </section>
+
+    <section class="thh-hw__part thh-hw__part--short" aria-labelledby="thh-hw-titled">
+      <h2 id="thh-hw-titled"><span class="thh-hw__part-n">IV</span> Titled</h2>
+      <p class="thh-hw__part-note">Same book. A stile, not a second house. Agents meet 402 at the stile Worker; humans stay on the treatise.</p>
+      <ol class="thh-hw__book">
+        {%- for key in titled -%}
+          {%- assign handle = key -%}
+          {%- include 'thh-hubwik-lookup' -%}
+          {%- if hw_found -%}
+            <li class="thh-hw__line">
+              <a href="{{ hw_url }}">
+                <span class="thh-hw__line-name">
+                  {{ hw_title | escape }}
+                  <span class="thh-hw__mark">titled</span>
+                </span>
+                <span class="thh-hw__line-claim">{{ hw_claim | escape }}</span>
+              </a>
+            </li>
+          {%- endif -%}
+        {%- endfor -%}
+      </ol>
+    </section>
+
+    <p class="thh-hw__foot">Old kit setup URLs and <a href="/pages/guides">/pages/guides</a> 301 into this book.</p>
+  </div>
+</article>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "CollectionPage",
+  "name": "Hub Wik",
+  "description": "Citable growing treatises from The Homestead Hub.",
+  "url": {{ shop_root | append: '/pages/hubwik' | json }},
+  "isPartOf": {
+    "@type": "WebSite",
+    "name": {{ shop.name | json }},
+    "url": {{ shop_root | json }},
+    "potentialAction": {
+      "@type": "SearchAction",
+      "target": "{{ shop_root }}/search?q={% raw %}{search_term_string}{% endraw %}",
+      "query-input": "required name=search_term_string"
+    }
+  },
+  "mainEntity": {
+    "@type": "ItemList",
+    "numberOfItems": {{ total }},
+    "itemListElement": [
+      {%- assign i = 0 -%}
+      {%- assign all_keys = lore | concat: growing | concat: shop | concat: titled -%}
+      {%- for key in all_keys -%}
+        {%- assign handle = key -%}
+        {%- include 'thh-hubwik-lookup' -%}
+        {%- if hw_found -%}
+          {%- assign i = i | plus: 1 -%}
+          {%- unless i == 1 -%},{%- endunless -%}
+          {
+            "@type": "ListItem",
+            "position": {{ i }},
+            "name": {{ hw_title | json }},
+            "description": {{ hw_claim | json }},
+            "url": {{ shop_root | append: hw_url | json }}
+          }
+        {%- endif -%}
+      {%- endfor -%}
+    ]
+  }
+}
+</script>
+
+{% schema %}
+{
+  "name": "Hubwik hall",
+  "settings": []
+}
+{% endschema %}

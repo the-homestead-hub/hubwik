@@ -1,0 +1,60 @@
+name: Crop correction
+description: A growing fact, flavour, or number on a catalogue variety looks wrong.
+title: "[crop] "
+labels: ["crop"]
+body:
+  - type: dropdown
+    id: handle
+    attributes:
+      label: Variety
+      options:
+        - basil
+        - beetroot
+        - broccoli
+        - carrot
+        - chives
+        - coriander
+        - cress
+        - dill
+        - lettuce
+        - pak-choi
+        - parsley
+        - pea
+        - radish-rambo
+        - rainbow-radish
+        - rocket
+        - spring-onion
+        - swiss-chard
+        - white-mustard
+        - not listed (explain below)
+    validations:
+      required: true
+  - type: textarea
+    id: what
+    attributes:
+      label: What is wrong
+      placeholder: The first-cut window, the sow depth, the flavour, the temperature floor…
+    validations:
+      required: true
+  - type: textarea
+    id: proposed
+    attributes:
+      label: Proposed text or number
+    validations:
+      required: true
+  - type: textarea
+    id: source
+    attributes:
+      label: Source
+      description: Title, date, and URL or “house observation with sow date”. A citation is not permission to paste someone else’s prose.
+    validations:
+      required: true
+  - type: dropdown
+    id: safety
+    attributes:
+      label: Does this touch safety?
+      options:
+        - "No"
+        - "Yes — edibility, toxicity, allergens, pesticides, manure, preservation, children, pets, or pregnancy"
+    validations:
+      required: true

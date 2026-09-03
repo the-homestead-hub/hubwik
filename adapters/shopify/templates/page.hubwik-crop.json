@@ -1,0 +1,9 @@
+{
+  "sections": {
+    "main": {
+      "type": "thh-hubwik-room",
+      "settings": {}
+    }
+  },
+  "order": ["main"]
+}

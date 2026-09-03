@@ -1,0 +1,35 @@
+version = 1
+
+[[annotations]]
+path = [
+    "src/**",
+    "tests/**",
+    "adapters/**",
+    "examples/**",
+    "pyproject.toml",
+    ".github/**",
+    ".gitignore",
+    ".gitattributes",
+]
+SPDX-FileCopyrightText = "2026 The Homestead Hub"
+SPDX-License-Identifier = "Apache-2.0"
+
+[[annotations]]
+path = [
+    "content/**",
+    "data/**",
+    "docs/**",
+    "README.md",
+    "CONTRIBUTING.md",
+    "GOVERNANCE.md",
+    "CODE_OF_CONDUCT.md",
+    "SECURITY.md",
+    "SUPPORT.md",
+    "DCO",
+    "LICENSING.md",
+    "TRADEMARKS.md",
+    "NOTICE",
+    "LICENSE",
+]
+SPDX-FileCopyrightText = "2026 The Homestead Hub"
+SPDX-License-Identifier = "CC-BY-4.0"

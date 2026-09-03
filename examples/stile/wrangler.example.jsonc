@@ -1,0 +1,11 @@
+{
+  "name": "hubwik-stile-example",
+  "main": "src/index.js",
+  "compatibility_date": "2026-08-20",
+  "workers_dev": true,
+  "vars": {
+    "TREATISE_URL": "https://example.com/pages/titled",
+    "TILL_URL": "https://example.com/products/seed-pack",
+    "RESOURCE_URL": "https://stile.example.org/"
+  }
+}

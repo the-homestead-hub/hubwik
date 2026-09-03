@@ -1,0 +1,24 @@
+name: Proposal
+description: A change larger than a crop correction — schema, ontology, or process.
+title: "[proposal] "
+labels: ["proposal"]
+body:
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problem
+    validations:
+      required: true
+  - type: textarea
+    id: change
+    attributes:
+      label: Proposed change
+    validations:
+      required: true
+  - type: textarea
+    id: out
+    attributes:
+      label: What this is not
+      description: Name the private or titled surfaces this must not reopen (tills, wallets, partner lists, a nineteenth variety…).
+    validations:
+      required: true

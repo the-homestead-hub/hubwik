@@ -1,0 +1,45 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://hubwik.dev/schema/crop.json",
+  "title": "HubWīk crop record",
+  "type": "object",
+  "required": [
+    "crop_id",
+    "handle",
+    "crop_name",
+    "latin",
+    "sow",
+    "harvest",
+    "flavour",
+    "claim_provenance",
+    "status"
+  ],
+  "properties": {
+    "crop_id": { "type": "string", "pattern": "^[a-z][a-z0-9_]*$" },
+    "handle": { "type": "string", "pattern": "^[a-z][a-z0-9-]*$" },
+    "crop_name": { "type": "string" },
+    "latin": { "type": "string" },
+    "crop_family": { "type": "string" },
+    "crop_type": { "type": "string" },
+    "crop_kind": { "enum": ["herb", "leafy", "root", "micro", "fruiting"] },
+    "variety_name": { "type": "string" },
+    "sow": { "type": "string" },
+    "harvest": { "type": "string" },
+    "flavour": { "type": "string", "minLength": 8 },
+    "pack_g": { "type": "number" },
+    "claim": { "type": "string" },
+    "deck": { "type": "string" },
+    "claim_provenance": {
+      "enum": [
+        "thh_observation",
+        "thh_trial",
+        "supplier_spec",
+        "horticultural_consensus",
+        "external_study",
+        "working_recommendation",
+        "live_treatise"
+      ]
+    },
+    "status": { "enum": ["complete", "incomplete", "needs_review"] }
+  }
+}

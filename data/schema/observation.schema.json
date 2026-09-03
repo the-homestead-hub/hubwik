@@ -1,0 +1,52 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://hubwik.dev/schema/observation.json",
+  "title": "HubWīk observation row",
+  "description": "A row that cannot fill the required fields is a note. It does not enter the crop record. partner_id is internal-only and must never be printed on a treatise.",
+  "type": "object",
+  "required": [
+    "observation_id",
+    "crop_id",
+    "provenance",
+    "observer_class",
+    "sow_date",
+    "medium",
+    "lamp",
+    "as_of",
+    "source",
+    "status"
+  ],
+  "properties": {
+    "observation_id": { "type": "string", "pattern": "^obs-[0-9]{4}-[0-9]{4}$" },
+    "crop_id": { "type": "string" },
+    "variety_name": { "type": "string" },
+    "provenance": {
+      "enum": [
+        "thh_observation",
+        "thh_trial",
+        "kit_buyer",
+        "partner_observation",
+        "supplier_spec",
+        "horticultural_consensus",
+        "external_study",
+        "working_recommendation"
+      ]
+    },
+    "observer_class": { "enum": ["house", "kit_buyer", "partner", "supplier"] },
+    "partner_id": { "type": "string", "description": "Internal only. Never print." },
+    "sow_date": { "type": "string", "format": "date" },
+    "first_cut_date": { "type": "string", "format": "date" },
+    "first_cut_days": { "type": "number" },
+    "yield_g": { "type": "number" },
+    "failure_mode": { "type": "string" },
+    "medium": { "type": "string" },
+    "lamp": { "type": "boolean" },
+    "aspect": { "enum": ["south", "west", "east", "north", "unknown"] },
+    "latitude_band": { "type": "string" },
+    "location_note": { "type": "string", "description": "City or region. Never a street address." },
+    "kit": { "enum": ["three_by_four", "four_by_four", "seed_pack", "none"] },
+    "as_of": { "type": "string", "format": "date" },
+    "source": { "type": "string" },
+    "status": { "enum": ["draft", "accepted", "rejected"] }
+  }
+}

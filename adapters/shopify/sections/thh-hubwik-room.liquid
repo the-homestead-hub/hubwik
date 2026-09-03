@@ -1,0 +1,122 @@
+{{ 'thh-hubwik.css' | asset_url | stylesheet_tag }}
+
+{%- liquid
+  assign seed = all_products['seed-pack']
+  if section.settings.seed_pack != blank
+    assign seed = section.settings.seed_pack
+  endif
+  assign handle = page.handle
+-%}
+{%- include 'thh-hubwik-lookup' -%}
+{%- liquid
+  assign variant_obj = nil
+  if seed != blank and hw_sku != blank
+    for v in seed.variants
+      if v.sku == hw_sku
+        assign variant_obj = v
+        break
+      endif
+    endfor
+  endif
+  assign product = nil
+  if hw_product != blank
+    assign product = all_products[hw_product]
+  endif
+  assign till = hw_till
+  if hw_kind == 'seed'
+    assign till = '/products/seed-pack'
+    if seed != blank
+      assign till = seed.url
+    endif
+    if variant_obj
+      assign till = till | append: '?variant=' | append: variant_obj.id
+    elsif hw_variant != blank
+      assign till = till | append: '?variant=' | append: hw_variant
+    endif
+  elsif product and till == blank
+    assign till = product.url
+  endif
+  assign box_img = nil
+  assign box_alt = hw_title
+  if variant_obj and variant_obj.featured_image
+    assign box_img = variant_obj.featured_image
+    assign box_alt = hw_title | append: ' seed pack'
+  elsif product and product.featured_image
+    assign box_img = product.featured_image
+  endif
+  assign live_price = hw_price
+  if hw_kind == 'seed'
+    assign live_price = '£2.99'
+    if variant_obj
+      assign live_price = variant_obj.price | money
+    endif
+  elsif product
+    assign live_price = product.price | money
+  endif
+-%}
+
+<article class="thh-hw thh-hw-room" data-kind="{{ hw_kind | escape }}">
+  <a class="thh-hw-room__crumb" href="/pages/hubwik">{% render 'thh-hubwik-mark' %}</a>
+  <div class="thh-hw-room__grid">
+    <header class="thh-hw-room__head">
+      {%- if hw_kind != blank -%}
+        <p class="thh-hw-room__kind">{{ hw_part_label | default: hw_kind | escape }}{%- if hw_harvest != blank -%} · {{ hw_harvest | escape }}{%- endif -%}</p>
+      {%- endif -%}
+      <h1>{{ hw_title | default: page.title | escape }}</h1>
+      {%- if hw_latin != blank -%}
+        <p class="thh-hw-room__latin">{{ hw_latin | escape }}</p>
+      {%- endif -%}
+      <p class="thh-hw-room__lede">{{ hw_lede | default: hw_deck | default: hw_claim | escape }}</p>
+
+      {%- if hw_kind == 'titled' -%}
+        <aside class="thh-hw-stile" role="note">
+          <p class="thh-hw-stile__kicker">Stile</p>
+          <p>This page is the human treatise. Agents without payment receive HTTP 402 at the stile Worker. Settlement is not open. Pay at the shop till.</p>
+          <a href="{{ section.settings.stile_url | default: '/pages/titled' }}">Agent stile</a>
+          <a href="/products/seed-pack">Human till — Seed Pack</a>
+        </aside>
+      {%- endif -%}
+    </header>
+
+    <aside class="thh-hw-box">
+      <p class="thh-hw-box__cap">{{ hw_box_cap | default: hw_title | escape }}</p>
+      {%- if box_img -%}
+        <figure>
+          <img
+            src="{{ box_img | image_url: width: 640 }}"
+            alt="{{ box_alt | escape }}"
+            width="640"
+            height="640"
+            fetchpriority="high"
+          >
+        </figure>
+      {%- endif -%}
+      {%- assign hw_slot = 'box' -%}
+      {%- include 'thh-hubwik-body' -%}
+      {%- if till != blank and hw_till_label != blank -%}
+        <a class="thh-hw-box__cta" href="{{ till }}">{{ hw_till_label | replace: '£PRICE', live_price }}</a>
+        {%- if hw_till_note != blank -%}
+          <p class="thh-hw-box__also">{{ hw_till_note | escape }}</p>
+        {%- endif -%}
+      {%- endif -%}
+    </aside>
+
+    <div class="thh-hw-room__prose">
+      {%- assign hw_slot = 'article' -%}
+      {%- include 'thh-hubwik-body' -%}
+    </div>
+  </div>
+</article>
+
+{%- assign hw_slot = 'ld' -%}
+{%- include 'thh-hubwik-body' -%}
+
+{% schema %}
+{
+  "name": "Hubwik room",
+  "settings": [
+    { "type": "product", "id": "seed_pack", "label": "Seed Pack" },
+    { "type": "url", "id": "stile_url", "label": "Stile URL", "info": "Agent stile. Leave blank to keep humans on Titled." }
+  ]
+}
+{% endschema %}

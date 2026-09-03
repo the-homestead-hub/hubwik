@@ -1,0 +1,13 @@
+{%- comment -%}
+  Hubwik mark for Shopify search hits. Pass url: page.url
+{%- endcomment -%}
+{%- liquid
+  assign u = url | default: ''
+  assign hw_hit = false
+  if u contains '/pages/hubwik' or u contains '/pages/grow-' or u contains '/pages/homesteading' or u contains '/pages/coco-soil' or u contains '/pages/halo-grow-lamp' or u contains '/pages/growth-formula' or u contains '/pages/glassine' or u contains '/pages/three-by-four' or u contains '/pages/four-by-four' or u contains '/pages/titled'
+    assign hw_hit = true
+  endif
+-%}
+{%- if hw_hit -%}
+  <span class="thh-hw-search-mark">{% render 'thh-hubwik-mark' %}</span>
+{%- endif -%}

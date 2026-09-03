@@ -1,0 +1,8 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Shop order or till
+    url: https://thehomesteadhub.co.uk
+    about: Delivery, payment, and stock are not handled in this repository.
+  - name: Security report
+    url: https://github.com/the-homestead-hub/hubwik/security/advisories/new
+    about: Privately report a compiler or workflow vulnerability.
