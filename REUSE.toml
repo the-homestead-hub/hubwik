@@ -6,6 +6,7 @@ path = [
     "tests/**",
     "adapters/**",
     "examples/**",
+    "tools/**",
     "pyproject.toml",
     ".github/**",
     ".gitignore",

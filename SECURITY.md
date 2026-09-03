@@ -5,8 +5,9 @@
 Do not open a public issue for a vulnerability in the compiler, the stile
 example, or the generated output.
 
-When this repository is on GitHub, use
-[privately reporting a vulnerability](https://docs.github.com/en/code-security/security-advisories/guidance-on-reporting-and-writing-information-about-vulnerabilities/privately-reporting-a-vulnerability).
+Report privately with the repository advisory form:
+
+https://github.com/the-homestead-hub/hubwik/security/advisories/new
 
 You may also write to hello@thehomesteadhub.co.uk with the subject
 `HubWīk security`.
