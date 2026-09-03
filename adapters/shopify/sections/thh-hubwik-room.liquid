@@ -8,15 +8,32 @@
   assign handle = page.handle
 -%}
 {%- include 'thh-hubwik-lookup' -%}
+{%- comment -%}
+  Resolve the Seed Pack variant on the shop, not from public HubWīk data.
+  Public records never carry SKUs or variant IDs. Match by SKU only if a
+  private overlay set hw_sku; otherwise match the variant title to hw_title
+  (Basil, Radish Rambo, …). Never fall back to the Seed Pack product hero
+  (family grid) on a seed room — that image is not the pack for this crop.
+{%- endcomment -%}
 {%- liquid
   assign variant_obj = nil
-  if seed != blank and hw_sku != blank
-    for v in seed.variants
-      if v.sku == hw_sku
-        assign variant_obj = v
-        break
-      endif
-    endfor
+  if seed != blank
+    if hw_sku != blank
+      for v in seed.variants
+        if v.sku == hw_sku
+          assign variant_obj = v
+          break
+        endif
+      endfor
+    endif
+    if variant_obj == nil and hw_title != blank
+      for v in seed.variants
+        if v.title == hw_title
+          assign variant_obj = v
+          break
+        endif
+      endfor
+    endif
   endif
   assign product = nil
   if hw_product != blank
@@ -38,10 +55,16 @@
   endif
   assign box_img = nil
   assign box_alt = hw_title
-  if variant_obj and variant_obj.featured_image
-    assign box_img = variant_obj.featured_image
-    assign box_alt = hw_title | append: ' seed pack'
-  elsif product and product.featured_image
+  if variant_obj
+    if variant_obj.image
+      assign box_img = variant_obj.image
+    elsif variant_obj.featured_media
+      assign box_img = variant_obj.featured_media
+    endif
+    if box_img
+      assign box_alt = hw_title | append: ' seed pack'
+    endif
+  elsif hw_kind != 'seed' and product and product.featured_image
     assign box_img = product.featured_image
   endif
   assign live_price = hw_price

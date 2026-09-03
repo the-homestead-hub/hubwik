@@ -33,6 +33,9 @@ shopify theme dev
 ```
 
 Open `/pages/hubwik` and one grow page (for example `/pages/grow-basil`).
+The grow-page box image must be that variety’s Seed Pack front, not the
+family grid hero. The room section matches the live Seed Pack variant by
+title (and never falls back to the product hero on seed rooms).
 Leave the room section’s Stile URL blank unless you are testing agents.
 
 Push only those files (the script prints the exact `--only` list):
